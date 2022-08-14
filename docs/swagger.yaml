@@ -1,0 +1,185 @@
+definitions:
+  Models.Aluno:
+    properties:
+      cpf:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      nome:
+        type: string
+      rg:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /aluno:
+    post:
+      consumes:
+      - application/json
+      description: post aluno
+      parameters:
+      - description: Modelo do aluno
+        in: body
+        name: aluno
+        required: true
+        schema:
+          $ref: '#/definitions/Models.Aluno'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Models.Aluno'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Inserir um novo aluno
+      tags:
+      - Alunos
+  /aluno/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete aluno por ID
+      parameters:
+      - description: Aluno ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Deletar um aluno
+      tags:
+      - Alunos
+    get:
+      consumes:
+      - application/json
+      description: get aluno por ID
+      parameters:
+      - description: Aluno ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Models.Aluno'
+            type: array
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Recupar um Aluno
+      tags:
+      - Alunos
+    put:
+      consumes:
+      - application/json
+      description: put aluno por id
+      parameters:
+      - description: Modelo de aluno
+        in: body
+        name: aluno
+        required: true
+        schema:
+          $ref: '#/definitions/Models.Aluno'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Models.Aluno'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Editar um aluno
+      tags:
+      - Alunos
+  /aluno/cpf/{cpf}:
+    get:
+      consumes:
+      - application/json
+      description: get aluno por cpf
+      parameters:
+      - description: Aluno CPF
+        in: path
+        name: cpf
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Models.Aluno'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Recupera aluno por CPF
+      tags:
+      - Aluno
+  /alunos:
+    get:
+      consumes:
+      - application/json
+      description: Rota para buscar todos os alunos
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Models.Aluno'
+      summary: Mostrar todos os alunos
+      tags:
+      - Alunos
+swagger: "2.0"
