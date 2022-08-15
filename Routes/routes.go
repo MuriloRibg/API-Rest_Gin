@@ -23,11 +23,11 @@ func HandleRequests() {
 
 	//swag init --pd --parseInternal --parseDepth 1
 	//Informações do swagger
-	docs.SwaggerInfo.Title = "Api de alunos"
+	docs.SwaggerInfo.Title = "Api do Murilove"
 	docs.SwaggerInfo.Description = "Api REST com Gin e Gorm"
 	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.Host = "localhost:8080"
-	//docs.SwaggerInfo.BasePath = "/v1"
+	docs.SwaggerInfo.Host = "18.230.75.0:8080/v1"
+	docs.SwaggerInfo.BasePath = "/v1"
 	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
 	r.Use(Middleware.CORSMiddleware())
