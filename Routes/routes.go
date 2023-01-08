@@ -26,8 +26,7 @@ func HandleRequests() {
 	docs.SwaggerInfo.Title = "Api do Murilove"
 	docs.SwaggerInfo.Description = "Api REST com Gin e Gorm"
 	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.Host = "18.230.75.0:8080"
-	//docs.SwaggerInfo.BasePath = "/v1"
+	docs.SwaggerInfo.Host = "localhost:8080"
 	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
 	r.Use(Middleware.CORSMiddleware())

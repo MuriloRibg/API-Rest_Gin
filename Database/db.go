@@ -13,7 +13,11 @@ var (
 )
 
 func ConectarBanco() {
-	conectString := fmt.Sprintf("%s:%s@tcp(%s:3306)/estudos?charset=utf8mb4&parseTime=True&loc=Local", "delta", "#Murilo1202", "aquarius-knight-db.mysql.database.azure.com")
+
+	user := "root"
+	password := "@Murilo1202"
+	host := "localhost"
+	conectString := fmt.Sprintf("%s:%s@tcp(%s:3306)/cursos?charset=utf8mb4&parseTime=True&loc=Local", user, password, host)
 	DB, err = gorm.Open(mysql.Open(conectString))
 	if err != nil {
 		panic(err.Error())
