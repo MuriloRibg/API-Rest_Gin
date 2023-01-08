@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-// Listar godoc
+// Listar 		 godoc
 // @Summary      Mostrar todos os alunos
 // @Description  Rota para buscar todos os alunos
 // @Tags         Aluno
@@ -23,7 +23,7 @@ func Listar(c *gin.Context) {
 	c.JSON(http.StatusOK, Alunos)
 }
 
-// Recuperar godoc
+// Recuperar 	 godoc
 // @Summary      Recupar um Aluno
 // @Description  get aluno por ID
 // @Tags         Aluno
@@ -48,7 +48,7 @@ func Recuperar(c *gin.Context) {
 	})
 }
 
-// Inserir godoc
+// Inserir   	 godoc
 // @Summary      Inserir um novo aluno
 // @Description  post aluno
 // @Tags         Aluno
@@ -74,7 +74,7 @@ func Inserir(c *gin.Context) {
 	c.JSON(http.StatusOK, aluno)
 }
 
-// Deletar godoc
+// Deletar 		 godoc
 // @Summary      Deletar um aluno
 // @Description  delete aluno por ID
 // @Tags         Aluno
@@ -98,7 +98,7 @@ func Deletar(c *gin.Context) {
 	})
 }
 
-// Editar godoc
+// Editar 		 godoc
 // @Summary      Editar um aluno
 // @Description  put aluno por id
 // @Tags         Aluno
@@ -146,4 +146,22 @@ func RecuperPorCPF(c *gin.Context) {
 	c.JSON(http.StatusBadRequest, gin.H{
 		"Error": fmt.Sprintf("Aluno com cpf = %s, não encontrado!", cpf),
 	})
+}
+
+func ExibePaginaInicial(c *gin.Context) {
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"mensagem": "Boas vindas",
+	})
+}
+
+func ExibePaginaAlunos(c *gin.Context) {
+	var alunos []Models.Aluno
+	Database.DB.Find(&alunos)
+	c.HTML(http.StatusOK, "alunos.html", gin.H{
+		"alunos": alunos,
+	})
+}
+
+func RotaNaoEncontrada(c *gin.Context) {
+	c.HTML(http.StatusNotFound, "404.html", nil)
 }

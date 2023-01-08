@@ -14,7 +14,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Inserir um novo aluno",
                 "parameters": [
@@ -98,7 +98,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Recupar um Aluno",
                 "parameters": [
@@ -137,7 +137,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Editar um aluno",
                 "parameters": [
@@ -178,7 +178,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Deletar um aluno",
                 "parameters": [
@@ -213,7 +213,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Mostrar todos os alunos",
                 "responses": {

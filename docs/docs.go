@@ -26,7 +26,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Inserir um novo aluno",
                 "parameters": [
@@ -110,7 +110,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Recupar um Aluno",
                 "parameters": [
@@ -149,7 +149,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Editar um aluno",
                 "parameters": [
@@ -190,7 +190,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Deletar um aluno",
                 "parameters": [
@@ -225,7 +225,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Alunos"
+                    "Aluno"
                 ],
                 "summary": "Mostrar todos os alunos",
                 "responses": {

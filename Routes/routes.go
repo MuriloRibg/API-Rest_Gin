@@ -20,6 +20,8 @@ import (
 
 func HandleRequests() {
 	r := gin.Default()
+	r.LoadHTMLGlob("Templates/*")
+	r.Static("/Assets", "./Assets")
 
 	//swag init --pd --parseInternal --parseDepth 1
 	//Informações do swagger
@@ -33,11 +35,16 @@ func HandleRequests() {
 	r.GET("/alunos", Controllers.Listar)
 	r.GET("/aluno/:id", Controllers.Recuperar)
 	r.GET("/aluno/cpf/:cpf", Controllers.RecuperPorCPF)
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.POST("/aluno", Controllers.Inserir)
 	r.DELETE("/aluno/:id", Controllers.Deletar)
 	r.PUT("/aluno/:id", Controllers.Editar)
 
+	r.GET("/inicio", Controllers.ExibePaginaInicial)
+	r.GET("/inicio/alunos", Controllers.ExibePaginaAlunos)
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+	r.NoRoute(Controllers.RotaNaoEncontrada)
 	err := r.Run()
 	if err != nil {
 		panic(err.Error())

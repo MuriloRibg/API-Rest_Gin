@@ -63,7 +63,7 @@ paths:
             $ref: '#/definitions/httputil.HTTPError'
       summary: Inserir um novo aluno
       tags:
-      - Alunos
+      - Aluno
   /aluno/{id}:
     delete:
       consumes:
@@ -86,7 +86,7 @@ paths:
             $ref: '#/definitions/httputil.HTTPError'
       summary: Deletar um aluno
       tags:
-      - Alunos
+      - Aluno
     get:
       consumes:
       - application/json
@@ -112,7 +112,7 @@ paths:
             $ref: '#/definitions/httputil.HTTPError'
       summary: Recupar um Aluno
       tags:
-      - Alunos
+      - Aluno
     put:
       consumes:
       - application/json
@@ -139,7 +139,7 @@ paths:
             $ref: '#/definitions/httputil.HTTPError'
       summary: Editar um aluno
       tags:
-      - Alunos
+      - Aluno
   /aluno/cpf/{cpf}:
     get:
       consumes:
@@ -181,5 +181,5 @@ paths:
             $ref: '#/definitions/Models.Aluno'
       summary: Mostrar todos os alunos
       tags:
-      - Alunos
+      - Aluno
 swagger: "2.0"
